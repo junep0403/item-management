@@ -35,7 +35,7 @@
 
                         <div class="form-group">
                             <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
+                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細">
                         </div>
                     </div>
 
