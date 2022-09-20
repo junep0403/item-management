@@ -13,4 +13,19 @@ class Usercontroller extends Controller
             'users' => $users,
         ]);
     }
+
+    
+        /**
+        * ユーザー削除
+        *
+        */
+        public function delete($id)
+        {
+            // Usersテーブルから指定のIDのレコード1件を取得
+            $user = User::find($id);
+            // レコードを削除
+            $user->delete();
+            // 削除したら一覧画面にリダイレクト
+            return redirect('/list');
+        }
 }

@@ -1,6 +1,7 @@
 <?php
-use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,10 @@ Route::prefix('items')->group(function () {
 });
 
 // ユーザー一覧画面表示 
-Route::get('/', [App\Http\Controllers\UserController::class, 'list']);
+Route::get('/list', [App\Http\Controllers\UserController::class, 'list']);
+
+// アイテム削除機能
+Route::post('/destroy{id}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('item.destroy');
+
+// ユーザー削除機能
+Route::post('/delete{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user.destroy');

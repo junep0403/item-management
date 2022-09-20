@@ -36,6 +36,9 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->role }}</td>
                                     <td>{{ $user->created_at }}</td>
+                                    <td><form action="{{ route('user.destroy', ['id'=>$user->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">削除</button></form></td>
                                 </tr>
                             @endforeach
                         </tbody>

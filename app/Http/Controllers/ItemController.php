@@ -57,4 +57,18 @@ class ItemController extends Controller
 
         return view('item.add');
     }
+
+        /**
+        * 商品削除
+        *
+        */
+        public function destroy($id)
+        {
+            // Itemsテーブルから指定のIDのレコード1件を取得
+            $item = Item::find($id);
+            // レコードを削除
+            $item->delete();
+            // 削除したら一覧画面にリダイレクト
+            return redirect('/items');
+        }
 }

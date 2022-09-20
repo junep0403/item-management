@@ -39,6 +39,9 @@
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
                                     <td>{{ $item->created_at }}</td>
+                                    <td><form action="{{ route('item.destroy', ['id'=>$item->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">削除</button></form></td>
                                 </tr>
                             @endforeach
                         </tbody>
