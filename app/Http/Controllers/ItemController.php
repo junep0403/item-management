@@ -71,4 +71,33 @@ class ItemController extends Controller
             // 削除したら一覧画面にリダイレクト
             return redirect('/items');
         }
+
+        /**
+        * 商品編集
+        *
+        */
+    public function edit (Request $request){
+        $items = Item::where('id', '=', $request->id)->first();
+        // dd($items);
+        return view('item.edit')->with([
+            'items' => $items
+        ]);
+    }
+
+        /**
+        * 商品編集
+        *
+        */
+        public function storeEdit(Request $request)
+        {
+            // Itemsテーブルから指定のIDのレコード1件を取得
+            $items = Item::find($request->id);
+            
+            //dd($items);
+            $items->fill($request->all());
+            $items->save();
+
+            // 編集したら一覧画面にリダイレクト
+            return redirect('/items');
+        }
 }

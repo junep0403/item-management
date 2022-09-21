@@ -36,6 +36,7 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->role }}</td>
                                     <td>{{ $user->created_at }}</td>
+                                    <td><a href="{{ route('user.edit', $user->id) }}" class="btn btn-info">編集</a></td>
                                     <td><form action="{{ route('user.destroy', ['id'=>$user->id]) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-danger">削除</button></form></td>

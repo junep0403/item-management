@@ -36,3 +36,11 @@ Route::post('/destroy{id}', [App\Http\Controllers\ItemController::class, 'destro
 
 // ユーザー削除機能
 Route::post('/delete{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user.destroy');
+
+// アイテム編集機能
+Route::get('/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit'])->name('edit');
+Route::post('/storeEdit', [App\Http\Controllers\ItemController::class, 'storeEdit'])->name('storeEdit');
+
+// ユーザー編集機能
+Route::get('/useredit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+Route::post('/userEdit', [App\Http\Controllers\UserController::class, 'userEdit'])->name('userEdit');
