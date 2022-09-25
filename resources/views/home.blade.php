@@ -3,11 +3,13 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <div class="text-center"><img src="http://127.0.0.1:8000/vendor/adminlte/dist/img/AdminLTELogo.png" alt="商品管理"></div>
+    <div class="p-3"></div>
+    <h1 class="text-center">商品管理システムへようこそ！</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p class="text-center">～サイドバーから項目を選択してください～</p>
 @stop
 
 @section('css')

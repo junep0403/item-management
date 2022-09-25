@@ -13,18 +13,17 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-
                 <div class="form-inline">
-                <div class="text-right form-inline">
-                    <a href="{{ url('items/add') }}" class="btn btn-primary">商品登録</a>
-                </div>
+                <form class="form-inline my-2 my-lg-0" action="{{ route('itemSearch') }}" method="GET">
+                    <input class="form-control" type="search" name="search" placeholder="検索">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                </form>
 
                 <div class="p-3"></div>
 
-                <form class="form-inline my-2 my-lg-0" action="{{ route('itemSearch') }}" method="GET">
-                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="検索">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-                </form>
+                <div class="text-right form-inline">
+                    <a href="{{ url('items/add') }}" class="btn btn-primary">商品登録</a>
+                </div>
                 </div>
 
                     <div class="card-tools">

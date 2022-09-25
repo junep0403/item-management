@@ -14,11 +14,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
+                    <form class="form-inline my-2 my-lg-0" action="{{ route('userSearch') }}" method="GET">
+                        <input class="form-control" type="search" name="search" placeholder="検索" aria-label="uaserSearch">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
                     <div class="card-tools">
-                        <form class="form-inline my-2 my-lg-0" action="{{ route('userSearch') }}" method="GET">
-                            <input class="form-control mr-sm-2" type="search" name="search" placeholder="検索" aria-label="uaserSearch">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-                        </form>
                     </div>
                 </div>
                 <div class="card-body table-responsive p-0">
