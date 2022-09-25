@@ -26,9 +26,15 @@
                 <input type="text" class="form-control" name="type" value="{{ $users->email }}">
             </div>
             <div class="form-group">
-                <label for="role"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">権限</font></font></label>
-                <input type="text" class="form-control" name="detail" value="{{ $users->role }}">
-            </div>
+                                    <label for="role"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">権限</font></font></label>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label"><input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="10" checked>一般</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label"><input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="1">管理者</label>
+                                    </div>
+                                </div>
         </div>
 
         <div class="card-footer">

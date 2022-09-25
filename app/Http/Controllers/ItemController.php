@@ -32,6 +32,28 @@ class ItemController extends Controller
         return view('item.index', compact('items'));
     }
 
+            /**
+         * 商品検索
+         * 
+         * 
+         */
+
+        public function itemSearch(Request $request)
+        {
+            $keyword = $request->input('search');
+            $query = Item::query();
+    
+            if(!empty($keyword)) {
+                $query->where('name', 'LIKE', "%{$keyword}%")
+                    ->orWhere('detail', 'LIKE', "%{$keyword}%");
+            }
+    
+            $items = $query->get();
+    
+            return view('item.index', compact('items', 'keyword'));
+        }
+
+
     /**
      * 商品登録
      */

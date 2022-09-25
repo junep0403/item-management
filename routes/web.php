@@ -44,3 +44,9 @@ Route::post('/storeEdit', [App\Http\Controllers\ItemController::class, 'storeEdi
 // ユーザー編集機能
 Route::get('/useredit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
 Route::post('/userEdit', [App\Http\Controllers\UserController::class, 'userEdit'])->name('userEdit');
+
+// アイテム検索機能
+Route::match(['get', 'post'],'itemSearch', [App\Http\Controllers\ItemController::class, 'itemSearch'])->name('itemSearch');
+
+// ユーザー検索機能
+Route::match(['get', 'post'],'userSearch', [App\Http\Controllers\UserController::class, 'userSearch'])->name('userSearch');

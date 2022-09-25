@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', '商品一覧')
+@section('title', '会員一覧')
 
 @section('content_header')
 
@@ -15,8 +15,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
-                        <!-- <div class="input-group input-group-sm">
-                        </div> -->
+                        <form class="form-inline my-2 my-lg-0" action="{{ route('userSearch') }}" method="GET">
+                            <input class="form-control mr-sm-2" type="search" name="search" placeholder="検索" aria-label="uaserSearch">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
                 <div class="card-body table-responsive p-0">
@@ -34,12 +36,19 @@
                                 <tr>
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
-                                    <td>{{ $user->role }}</td>
+                                    
+                                @if($user->role === 1)
+                                    <td>{{ '管理者' }}</td>
+                                @elseif($user->role === 10)
+                                    <td>{{ '一般' }}</td>
+                                @endif
                                     <td>{{ $user->created_at }}</td>
-                                    <td><a href="{{ route('user.edit', $user->id) }}" class="btn btn-info">編集</a></td>
+                                    @can('admin-higher')
+                                    <td><a href="{{ route('user.edit', $user->id) }}" class="btn btn-outline-primary btn-sm">編集</a></td>
                                     <td><form action="{{ route('user.destroy', ['id'=>$user->id]) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">削除</button></form></td>
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">削除</button></form></td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>

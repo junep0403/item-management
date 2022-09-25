@@ -33,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // 一般ユーザー（全員）へ許可
         Gate::define('user-higher',function($user){
-            return ($user->role > 0 && $user->role <=10);
+            return ($user->role >= 2 && $user->role <=10);
         });
     }
 }

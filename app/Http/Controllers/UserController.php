@@ -57,4 +57,24 @@ class Usercontroller extends Controller
             // 編集したら一覧画面にリダイレクト
             return redirect('/list');
         }
+
+        /**
+         * ユーザー検索
+         * 
+         * 
+         */
+
+        public function userSearch(Request $request)
+        {
+            $keyword = $request->input('search');
+            $query = User::query();
+    
+            if(!empty($keyword)) {
+                $query->where('name', 'LIKE', "%{$keyword}%");
+            }
+    
+            $users = $query->get();
+    
+            return view('user.list', compact('users', 'keyword'));
+        }
 }
