@@ -5,7 +5,7 @@
 @section('content_header')
     <div class="text-center"><img src="http://127.0.0.1:8000/vendor/adminlte/dist/img/AdminLTELogo.png" alt="商品管理"></div>
     <div class="p-3"></div>
-    <h1 class="text-center">商品管理システムへようこそ！</h1>
+    <h1 class="text-center">商品管理システム</h1>
 @stop
 
 @section('content')
