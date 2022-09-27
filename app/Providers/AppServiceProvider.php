@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // MYSQLが767byte以内に制限する
+        \Illuminate\Support\Facades\Schema::defaultStringLength(191);
     }
 }
