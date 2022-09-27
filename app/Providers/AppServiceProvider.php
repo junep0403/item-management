@@ -23,7 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // MYSQLが767byte以内に制限する
+        // MYSQLが767byte以内に制限する(MYSQLにバージョンが5.7以下に場合)
         \Illuminate\Support\Facades\Schema::defaultStringLength(191);
+        
+        if(\App::enviroment(['production'])) {
+            \URL::forseScheme('https');
+        }
     }
 }
